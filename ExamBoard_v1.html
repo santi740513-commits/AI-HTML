@@ -56,13 +56,13 @@
         // --- 設定資料 ---
         // 完整的時間表
         const SCHEDULE = [
-            { type: 'break', start: '08:30', end: '08:40', label: '準備' },
-            { type: 'exam',  start: '08:40', end: '09:20', label: '第一節' },
-            { type: 'break', start: '09:20', end: '09:30', label: '下課' },
-            { type: 'exam',  start: '09:30', end: '10:10', label: '第二節' },
-            { type: 'break', start: '10:10', end: '10:30', label: '下課 (大)' },
-            { type: 'exam',  start: '10:30', end: '11:10', label: '第三節' },
-            { type: 'break', start: '11:10', end: '11:20', label: '收卷' }
+            { type: 'break', start: '08:40', end: '08:45', label: '準備' },
+            { type: 'exam',  start: '08:45', end: '09:25', label: '第一節' },
+            { type: 'break', start: '09:25', end: '09:35', label: '下課' },
+            { type: 'exam',  start: '09:35', end: '10:15', label: '第二節' },
+            { type: 'break', start: '10:15', end: '10:30', label: '下課 (大)' },
+            { type: 'exam',  start: '10:30', end: '11:10', label: '第三節' }
+            //{ type: 'break', start: '11:10', end: '11:20', label: '收卷' }
         ];
 
         // 僅提取考試時段供 A 區顯示使用
@@ -129,7 +129,7 @@
                     return parsed;
                 }
                 return {
-                    subjects: ["國語", "數學", "英文"],
+                    subjects: ["國語", "自然"],
                     shouldArrive: "",
                     actualArrive: "",
                     absentList: ""
@@ -550,6 +550,16 @@
                                 {/* 未到 */}
                                 <div className="flex-[1.5] flex flex-col items-center justify-center p-2">
                                     <span className="text-[1.5vw] font-bold text-red-800">未到座號/姓名</span>
+                                    <textarea 
+                                        value={examData.absentList}
+                                        onChange={(e) => handleInputChange('absentList', e.target.value)}
+                                        className="w-full h-full text-center bg-transparent text-[2vw] font-bold text-red-600 outline-none resize-none pt-2 leading-tight"
+                                        placeholder="點擊輸入"
+                                    />
+                                </div>
+                                {/* 考試服務 */}
+                                <div className="flex-[1.5] flex flex-col items-center justify-center p-2">
+                                    <span className="text-[1.5vw] font-bold text-red-800">考試服務</span>
                                     <textarea 
                                         value={examData.absentList}
                                         onChange={(e) => handleInputChange('absentList', e.target.value)}
